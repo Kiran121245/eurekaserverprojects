@@ -19,21 +19,16 @@ import com.htc.doctormanagement.entity.Appointment;
 import com.htc.doctormanagement.entity.Doctor;
 import com.htc.doctormanagement.service.DoctorService;
 
-
 @RestController
 @RequestMapping("/api")
-
 public class DoctorCotroller {
 	
-		
 		@Autowired
 		private DoctorInterface doctorInterface;
 		@Autowired
 		private AppointmentInterface appointmentInterface;
 		@Autowired
 		private DoctorService doctorService;
-		
-		
 		
 		public DoctorCotroller(DoctorInterface doctorInterface, AppointmentInterface appointmentInterface,
 				DoctorService doctorService) {
@@ -63,23 +58,15 @@ public class DoctorCotroller {
 		  }
 		 
 		
-		@GetMapping("/doctors/{doctorId}")
-		Doctor getDoctorbyId(@PathVariable Long doctorId)
+		@GetMapping("/doctors/doctorId")
+		Doctor getDoctorbyId(@RequestParam("doctorId") Long doctorId)
 		{
 			Doctor doctor=null;
 			doctor=doctorInterface.findById(doctorId).get();
 			return doctor;
 			
 		}
-		
-//		@GetMapping("/doctors/{appointmentId}")
-//		Doctor getByappointmentId(@PathVariable Long appointmentId)
-//		{
-//			Doctor doctor=null;
-//			doctor=repo.findById(appointmentId).get();
-//			return doctor;
-//			
-//		}
+
 		
 		 @GetMapping("/doctors/{specialization}")
 			public Doctor findByspecialization(@RequestParam String specialization) {
