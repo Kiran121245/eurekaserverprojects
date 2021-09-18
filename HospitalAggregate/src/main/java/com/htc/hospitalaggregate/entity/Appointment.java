@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Id;
+
 public class Appointment implements Serializable{
 
 	/**
@@ -11,47 +13,50 @@ public class Appointment implements Serializable{
 	 */
 	private static final long serialVersionUID = -4290433460427598981L;
 	
-	private long appointmentId;
-	private LocalDateTime appointmentDate_Time;
+	@Id
+	private long AppointementId;
+	private String docterId ;
+	private String patientId;
+	private long phoneNumber;
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Appointment(long appointmentId, LocalDateTime appointmentDate_Time) {
+	public Appointment(long appointementId, String docterId, String patientId, long phoneNumber) {
 		super();
-		this.appointmentId = appointmentId;
-		this.appointmentDate_Time = appointmentDate_Time;
+		AppointementId = appointementId;
+		this.docterId = docterId;
+		this.patientId = patientId;
+		this.phoneNumber = phoneNumber;
 	}
-	public long getAppointmentId() {
-		return appointmentId;
+	public long getAppointementId() {
+		return AppointementId;
 	}
-	public void setAppointmentId(long appointmentId) {
-		this.appointmentId = appointmentId;
+	public void setAppointementId(long appointementId) {
+		AppointementId = appointementId;
 	}
-	public LocalDateTime getAppointmentDate_Time() {
-		return appointmentDate_Time;
+	public String getDocterId() {
+		return docterId;
 	}
-	public void setAppointmentDate_Time(LocalDateTime appointmentDate_Time) {
-		this.appointmentDate_Time = appointmentDate_Time;
+	public void setDocterId(String docterId) {
+		this.docterId = docterId;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(appointmentId);
+	public String getPatientId() {
+		return patientId;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Appointment other = (Appointment) obj;
-		return appointmentId == other.appointmentId;
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	@Override
 	public String toString() {
-		return "Appointment [appointmentId=" + appointmentId + ", appointmentDate_Time=" + appointmentDate_Time + "]";
+		return "Appiontement [AppointementId=" + AppointementId + ", docterId=" + docterId + ", patientId=" + patientId
+				+ ", phoneNumber=" + phoneNumber + "]";
 	}
 	
 }

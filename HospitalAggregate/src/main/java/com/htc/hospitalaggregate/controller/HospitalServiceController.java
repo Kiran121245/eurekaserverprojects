@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.htc.hospitalaggregate.entity.Appointment;
 import com.htc.hospitalaggregate.entity.Patient;
+import com.htc.hospitalaggregate.externalservices.AppointementService;
 import com.htc.hospitalaggregate.externalservices.HospitalServices;
 
 @RestController
@@ -15,6 +17,10 @@ public class HospitalServiceController {
 
 	@Autowired
 	HospitalServices hospitalServices;
+	
+	@Autowired
+	AppointementService appointementservice;
+
 	
 
 	private static final Logger logger=LoggerFactory.getLogger(HospitalServiceController.class);
@@ -26,14 +32,12 @@ public class HospitalServiceController {
 		
 	}
 	
-	/*
-	 * @GetMapping("/aggregate/recommendation/{id}") List<Recommendation>
-	 * getRecommendation(@PathVariable Long id) { List<Recommendation>
-	 * recommendations=new ArrayList<>();
-	 * recommendations.addAll(recomendationService.getRecommendationByProductId(id).
-	 * getContent());
-	 * log.info("No of recommendation retireved"+recommendations.size()); return
-	 * recommendations; }
-	 */
+	@GetMapping("/appointement_service/appointement/{id}")
+	Appointment getProduct2(@PathVariable Long id){
+		logger.toString();
+		return appointementservice.getappointementById(id);
+		
+	}
+
 	
 }

@@ -32,9 +32,6 @@ public class DoctorService {
 		        newDoctor.setDoctorName(doctor.getDoctorName());
 		
 		        newDoctor.setSpecialization(doctor.getSpecialization());
-//		        for(int i=0; i< doctor.getAppointment().size(); i++){
-//		        	Appointment appointment = appointmentInterface.save(doctor.getAppointment().get(i));
-//		        	            }
 
 		        newDoctor.setAppointment(doctor.getAppointment());
 		
